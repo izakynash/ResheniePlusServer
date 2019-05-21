@@ -7,6 +7,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 import reshenie.server.config.WebConfig;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
@@ -15,7 +16,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
     private final static String DISPATCHER = "dispatcher";
 
     // выполнить какие-то действия перед и во время деплоинга СервлетКонтекста
-    public void onStartup(javax.servlet.ServletContext servletContext) throws ServletException {
+    public void onStartup(ServletContext servletContext) throws ServletException {
         // создать контекст:
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         // регистрируем веб конфиг

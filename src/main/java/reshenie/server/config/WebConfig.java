@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @Configuration // класс является конфигурацией, его нужно выполнить перед деплойингом контекста спринга
 @EnableWebMvc // включить режим веб мвс (возм исп контроллеры)
-@ComponentScan("reshenie.server.config") // укажет, где искать все наши "бины" - классы, компоненты, сервисы, репозитории
+@ComponentScan() // укажет, где искать все наши "бины" - классы, компоненты, сервисы, репозитории
 
 public class WebConfig extends WebMvcConfigurationSupport {
 
