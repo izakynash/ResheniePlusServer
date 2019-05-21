@@ -1,4 +1,4 @@
-package reshenie.server.config.config;
+package reshenie.server.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,4 +10,5 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @ComponentScan("reshenie.server.config") // укажет, где искать все наши "бины" - классы, компоненты, сервисы, репозитории
 
 public class WebConfig extends WebMvcConfigurationSupport {
+
 }

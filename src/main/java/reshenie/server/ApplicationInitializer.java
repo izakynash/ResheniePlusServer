@@ -1,12 +1,11 @@
-package reshenie.server.config.controller;
+package reshenie.server;
 
 //import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Annotation;
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import reshenie.server.config.config.WebConfig;
+import reshenie.server.config.WebConfig;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;

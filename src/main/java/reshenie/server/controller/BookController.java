@@ -1,4 +1,4 @@
-package reshenie.server.config.controller;
+package reshenie.server.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
