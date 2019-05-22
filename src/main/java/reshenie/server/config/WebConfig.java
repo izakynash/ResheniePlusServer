@@ -1,14 +1,20 @@
 package reshenie.server.config;
 
+//import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration // класс является конфигурацией, его нужно выполнить перед деплойингом контекста спринга
-@EnableWebMvc // включить режим веб мвс (возм исп контроллеры)
-@ComponentScan() // укажет, где искать все наши "бины" - классы, компоненты, сервисы, репозитории
+import java.util.Collections;
+import java.util.List;
 
+@Configuration
+@EnableWebMvc
+@ComponentScan("reshenie.server")
 public class WebConfig extends WebMvcConfigurationSupport {
-
 }

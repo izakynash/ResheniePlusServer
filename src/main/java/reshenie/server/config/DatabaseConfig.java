@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-@EnableJpaRepositories("reshenie.server")
+@EnableJpaRepositories("reshenie.server.repository")
 @EnableTransactionManagement // поддержка транзакций
 @PropertySource("classpath:db1.properties")
 @ComponentScan("reshenie.server")

@@ -6,6 +6,7 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import reshenie.server.config.WebConfig;
+import reshenie.server.repository.BookRepository;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -28,5 +29,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER, new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1); // порядок инициализации нашего сервлета
+
     }
+
 }
