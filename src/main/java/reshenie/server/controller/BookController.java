@@ -1,43 +1,54 @@
 package reshenie.server.controller;
 
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import reshenie.server.entity.Book;
-import reshenie.server.repository.BookRepository;
+import reshenie.server.service.BookService;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/book")
 public class BookController {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookService service;
 
-    // контроллер должен знать, к какому методу обращаться и каким http методом:
-    @RequestMapping (value = "/get", method = RequestMethod.GET)
-    // объект ModelMap позволит передать что-либо клиенту в респонс
-    // @ResponseBody - в виде респонса хотим вернуть строку
-    public @ResponseBody
-    Book getBook () {
-        List<Book> list = bookRepository.findAll();
-        return createMockBook();
+    @RequestMapping (value = "/reminders", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Book> getAllBooks () {
+        return service.getAll();
     }
 
-    public Book createMockBook() {
-        Book book = new Book();
-        book.setId(1);
-        book.setTitle("boooook");
-        book.setDescription("good book");
+    @RequestMapping (value = "/reminders/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Book getBook (@PathVariable long id) {
+        return service.getById(id);
+    }
+
+    @RequestMapping (value = "/reminders", method = RequestMethod.POST)
+    @ResponseBody
+    public Book saveBook (@RequestBody Book book) {
+        return service.save(book);
+    }
+
+    @RequestMapping (value = "/reminders/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void delete (@PathVariable long id) {
+        service.remove(id);
+    }
+
+
+
+//    public Book createMockBook() {
+//        Book book = new Book();
+//        book.setId(1);
+//        book.setTitle("boooook");
+//        book.setDescription("good book");
 
 //        Gson gson = new Gson();
 //        return gson.toJson(book);
 
-        return book;
+//        return book;
     }
-}
+
