@@ -14,25 +14,25 @@ public class BookController {
     @Autowired
     private BookService service;
 
-    @RequestMapping (value = "/reminders", method = RequestMethod.GET)
+    @RequestMapping (value = "/books", method = RequestMethod.GET)
     @ResponseBody
     public List<Book> getAllBooks () {
         return service.getAll();
     }
 
-    @RequestMapping (value = "/reminders/{id}", method = RequestMethod.GET)
+    @RequestMapping (value = "/books/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Book getBook (@PathVariable long id) {
         return service.getById(id);
     }
 
-    @RequestMapping (value = "/reminders", method = RequestMethod.POST)
+    @RequestMapping (value = "/books", method = RequestMethod.POST)
     @ResponseBody
     public Book saveBook (@RequestBody Book book) {
         return service.save(book);
     }
 
-    @RequestMapping (value = "/reminders/{id}", method = RequestMethod.DELETE)
+    @RequestMapping (value = "/books/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete (@PathVariable long id) {
         service.remove(id);
