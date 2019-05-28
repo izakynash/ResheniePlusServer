@@ -20,7 +20,18 @@ public class Book {
     @Column(nullable = false, length = 100)
     private String description;
 
+    @Column(nullable = false, length = 50)
+    private String link;
+
     public Book() {
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public long getId() {
