@@ -25,7 +25,7 @@ public class Chapter {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "book_id", nullable = false)
-    private Book book;
+    private Book book = new Book();
 
     public Book getBook() {
         return book;

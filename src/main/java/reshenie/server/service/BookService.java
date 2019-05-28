@@ -1,6 +1,7 @@
 package reshenie.server.service;
 
 import reshenie.server.entity.Book;
+import reshenie.server.entity.Category;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
 //
 public interface BookService {
 
-    List<Book> getAll();
+    List<Book> getAllBook();
     Book getById (long id);
     Book save(Book book);
     void remove (long id);

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import reshenie.server.entity.Book;
+import reshenie.server.entity.Category;
 import reshenie.server.service.BookService;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class BookController {
     @RequestMapping (value = "/all_books", method = RequestMethod.GET)
     @ResponseBody
     public List<Book> getAllBooks () {
-        return service.getAll();
+        return service.getAllBook();
     }
 
     @RequestMapping (value = "/book/{id}", method = RequestMethod.GET)

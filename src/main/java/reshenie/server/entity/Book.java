@@ -36,6 +36,7 @@ public class Book {
 //        this.chapter = chapter;
 //    }
 
+
     // OneToMany
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
     private Set<Chapter> chapters;
@@ -48,7 +49,7 @@ public class Book {
         this.chapters = chapters;
     }
 
-    private Book() {
+    public Book() {
     }
 
     public String getLink() {
