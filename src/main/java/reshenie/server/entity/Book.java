@@ -3,15 +3,16 @@ package reshenie.server.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "book")
 public class Book {
 
     @Id
-    // для автоинкрементции id:
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "id", nullable = false, length = 3)
     private long id;
 
     @Column(name = "title", nullable = false, length = 30)
@@ -23,7 +24,31 @@ public class Book {
     @Column(nullable = false, length = 50)
     private String link;
 
-    public Book() {
+//    // OneToOne
+//    @OneToOne(optional = false, mappedBy = "book")
+//    public Chapter chapter;
+//
+//    public Chapter getChapter() {
+//        return chapter;
+//    }
+//
+//    public void setChapter(Chapter chapter) {
+//        this.chapter = chapter;
+//    }
+
+    // OneToMany
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
+    private Set<Chapter> chapters;
+
+    public Set<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(Set<Chapter> chapters) {
+        this.chapters = chapters;
+    }
+
+    private Book() {
     }
 
     public String getLink() {
